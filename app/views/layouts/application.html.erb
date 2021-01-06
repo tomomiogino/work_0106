@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <% flash.each do |key,value| %>
+      <%= content_tag(:div, value, class: "#{key}")%>
+    <% end %>
+    <% if logged_in? %>
+      <div>
+        <span><%= link_to "mypage", user_path(current_user.id) %></span>
+        <span><%= link_to "logout", session_path(current_user.id), method: :delete %></span>
+      </div>
+    <% else %>
+      <div>
+        <span><%= link_to "regstration", new_user_path %></span>
+        <span><%= link_to "login", new_session_path %></span>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

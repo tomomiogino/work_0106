@@ -1,0 +1,12 @@
+<h1>ログイン</h1>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <div>
+    <p><%= f.label :email %></p>
+    <p><%= f.email_field :email %></p>
+  </div>
+  <div>
+    <p><%= f.label :password %></p>
+    <p><%= f.text_field :password %></p>
+  </div>
+  <%= f.submit %>
+<% end %>
